@@ -18,6 +18,6 @@ const shopSchema = new Schema(
 shopSchema.post("save", handleMongooseError);
 
 
-const Shop = model('shop', postSchema);
+const Shop = model('shop', shopSchema);
 
 module.exports = Shop;
