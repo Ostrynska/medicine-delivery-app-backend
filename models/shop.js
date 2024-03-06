@@ -10,9 +10,22 @@ const shopSchema = new Schema(
     name: {
         type: String,
     },
-    drugslist: {
-        type: Object,
-        },
+    drugslist: [
+            {
+                name: {
+                    type: String,
+            },
+                photo: {
+                     type: String,
+            },
+                description: {
+                     type: String,
+            },
+                price: {
+                    type: Number,
+                },
+            }
+        ],
 }, {versionKey: false, timestamps: true});
 
 shopSchema.post("save", handleMongooseError);
