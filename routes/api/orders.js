@@ -7,7 +7,6 @@ const { validateBody, isValidId } = require('../../middlewares');
 
 const { schemas } = require('../../models/order');
 
-
 router.get('/', ctrl.listOrders)
 router.post('/', validateBody(schemas.addSchema), ctrl.listOrders)
 
