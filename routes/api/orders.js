@@ -5,7 +5,7 @@ const router = express.Router();
 const ctrl = require('../../controllers/orders');
 const { validateBody, isValidId } = require('../../middlewares');
 
-router.get('/', ctrl.ordersList)
+router.get('/', ctrl.listOrders)
 
 router.get('/:id', isValidId, ctrl.getShopById)
 
