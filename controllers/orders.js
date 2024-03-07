@@ -6,16 +6,6 @@ const listOrders = async (req, res) => {
     res.json(result);
 }
 
-const getOrderById = async (req, res) => {
-    const {id} = req.params;
-    const result = await Order.findById(id);
-    if (!result) {
-      throw HttpError(404, 'Not found');
-    }
-    res.json(result);
-}
-
 module.exports = {
     listOrders: ctrlWrapper(listOrders),
-    getOrderById: ctrlWrapper(getOrderById)
 }
