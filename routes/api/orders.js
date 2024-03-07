@@ -7,6 +7,6 @@ const { validateBody, isValidId } = require('../../middlewares');
 
 router.get('/', ctrl.listOrders)
 
-router.get('/:id', isValidId, ctrl.getShopById)
+router.get('/:id', isValidId, ctrl.getOrderById)
 
 module.exports = router;
