@@ -16,7 +16,6 @@ const orderShema = new Schema(
     phone: {
         type: String,
     },
-
     drugslist: [
         {
             shop: {

@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const ctrl = require('../../controllers/orders');
+const ctrl = require('../../controllers/shops');
 const { validateBody, isValidId } = require('../../middlewares');
 
-router.get('/', ctrl.ordersList)
+router.get('/', ctrl.listShops)
 
 router.get('/:id', isValidId, ctrl.getShopById)
 
