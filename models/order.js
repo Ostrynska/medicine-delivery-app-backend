@@ -1,7 +1,15 @@
 const { Schema, model } = require('mongoose');
 const Joi = require("joi");
 
-const {handleMongooseError} = require("../helpers");
+const { handleMongooseError } = require("../helpers");
+
+const drugslistSchema = Schema({
+  order: {
+    type: Schema.Types.ObjectId,
+    ref: "shop",
+  },
+//   amount: { type: String, required: true },
+});
 
 const orderShema = new Schema(
     {
@@ -20,11 +28,11 @@ const orderShema = new Schema(
         type: String,
         required: [true, 'Phone field is required'],
         },
-    drugslist: {
-        type: Schema.Types.ObjectId,
-        ref: "shops",
-        required: true,
-    }
+    address: {
+        type: String,
+        required: [true, 'Address field is required'],
+        },
+    drugslist: [drugslistSchema]
     // drugslist: [
     //     {
     //         shop: {
