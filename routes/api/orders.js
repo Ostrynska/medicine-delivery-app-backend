@@ -5,9 +5,9 @@ const router = express.Router();
 const ctrl = require('../../controllers/orders');
 const { validateBody, isValidId } = require('../../middlewares');
 
-const { schemas } = require('../../models/order');
+const { Order } = require('../../models/order');
 
 router.get('/', ctrl.listOrders)
-router.post('/', validateBody(schemas.addSchema), ctrl.listOrders)
+router.post('/', validateBody(Order), ctrl.listOrders)
 
 module.exports = router;
