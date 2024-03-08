@@ -41,8 +41,6 @@ const addSchema = Joi.object({
     email: Joi.string().email().lowercase().required(),
     phone: Joi.string().required(),
     drugsList: Joi.required(),
-    shop: Joi.string().min(3).max(30).required(),
-    totalPrice: Joi.required(),
     // favorite: Joi.boolean()
 })
 
