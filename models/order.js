@@ -4,11 +4,12 @@ const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
 
 const drugslistSchema = Schema({
-  order: {
+    shop: { type: String, required: true },
+  drugslist: {
     type: Schema.Types.ObjectId,
     ref: "shop",
-  },
-//   amount: { type: String, required: true },
+    },
+  totalPrice: { type: Number, required: true },
 });
 
 const orderShema = new Schema(
@@ -33,25 +34,6 @@ const orderShema = new Schema(
         required: [true, 'Address field is required'],
         },
     drugslist: [drugslistSchema]
-    // drugslist: [
-    //     {
-    //         shop: {
-    //             type: String
-    //         },
-    //         drug: {
-    //             type: String,
-    //         },
-    //         price: {
-    //             type: Number,
-    //         },
-    //         quantity: {
-    //             type: Number,
-    //         },
-    //         totalPrice: {
-    //             type: Number,
-    //         },
-    //     }
-    // ], required: true,
     }, { versionKey: false, timestamps: true });
 
 const addSchema = Joi.object({
