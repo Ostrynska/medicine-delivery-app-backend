@@ -4,12 +4,12 @@ const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
 
 const drugslistSchema = Schema({
-    shop: { type: String, required: true },
+    shop: { type: String },
     drugslist: {
     type: Schema.Types.ObjectId,
     ref: "shop",
     },
-    totalPrice: { type: Number, required: true },
+    totalPrice: { type: Number },
 });
 
 const orderShema = new Schema(
@@ -19,19 +19,15 @@ const orderShema = new Schema(
     },
     name: {
         type: String,
-        required: [true, 'Name field is required'],
     },
     email: {
         type: String,
-        required: [true, 'Email field is required'],
     },
     phone: {
         type: String,
-        required: [true, 'Phone field is required'],
         },
     address: {
         type: String,
-        required: [true, 'Address field is required'],
         },
     drugslist: [drugslistSchema]
     }, { versionKey: false, timestamps: true });
