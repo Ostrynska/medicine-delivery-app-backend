@@ -5,11 +5,11 @@ const { handleMongooseError } = require("../helpers");
 
 const drugslistSchema = Schema({
     shop: { type: String, required: true },
-  drugslist: {
+    drugslist: {
     type: Schema.Types.ObjectId,
     ref: "shop",
     },
-  totalPrice: { type: Number, required: true },
+    totalPrice: { type: Number, required: true },
 });
 
 const orderShema = new Schema(
@@ -41,6 +41,8 @@ const addSchema = Joi.object({
     email: Joi.string().email().lowercase().required(),
     phone: Joi.string().required(),
     drugsList: Joi.required(),
+    shop: Joi.string().min(3).max(30).required(),
+    totalPrice: Joi.required(),
     // favorite: Joi.boolean()
 })
 
