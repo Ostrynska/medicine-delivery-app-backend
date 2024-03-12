@@ -23,13 +23,16 @@ const shopSchema = new Schema(
             },
                 price: {
                     type: Number,
-                },
-            }
-        ],
+            },
+                favorite: {
+                    type: Boolean,
+                    default: false,
+            },
+        }
+    ],
 }, {versionKey: false, timestamps: true});
 
 shopSchema.post("save", handleMongooseError);
-
 
 const Shop = model('shop', shopSchema);
 
