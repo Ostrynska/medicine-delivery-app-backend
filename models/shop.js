@@ -24,10 +24,10 @@ const shopSchema = new Schema(
                 price: {
                     type: Number,
             },
-                favorite: {
-                    type: Boolean,
-                    default: false,
-            },
+            //     favorite: {
+            //         type: Boolean,
+            //         default: false,
+            // },
         }
     ],
 }, {versionKey: false, timestamps: true});

@@ -9,6 +9,6 @@ router.get('/', ctrl.listShops)
 
 router.get('/:id', isValidId, ctrl.getShopById)
 
-router.patch("/:id/favorite", isValidId, ctrl.updateFavorite);
+// router.patch("/:id/favorite", isValidId, ctrl.updateFavorite);
 
 module.exports = router;
