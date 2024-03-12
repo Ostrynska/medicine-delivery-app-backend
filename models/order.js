@@ -1,14 +1,17 @@
 const { Schema, model } = require('mongoose');
-const Joi = require("joi");
-
 const { handleMongooseError } = require("../helpers");
 
-const drugSchema = new Schema({
-    shop: { type: String, required: true },
+const orderShemaByShop = new Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     count: { type: Number, required: true },
-    totalPrice: { type: Number, required: true },
+    totalByDrug: { type: Number, required: true },
+});
+
+const drugSchema = new Schema({
+    shop: { type: String, required: true },
+    orderlist: [orderShemaByShop],
+    totalPriceByShop: { type: Number, required: true },
 });
 
 const orderSchema = new Schema({
@@ -17,9 +20,8 @@ const orderSchema = new Schema({
     phone: { type: String, required: true },
     address: { type: String, required: true },
     drugslist: [drugSchema],
+    total: { type: Number, required: true },
 }, { timestamps: true });
-
-
 
 orderSchema.post("save", handleMongooseError);
 
