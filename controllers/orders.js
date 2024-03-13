@@ -14,9 +14,15 @@ const listOrders = async (req, res) => {
     }
 };
 
+const allOrders = async (req, res) => {
+    const result = await Order.find({}, "-createdAt -updatedAt");
+    res.json(result);
+}
+
 
 module.exports = {
     listOrders: ctrlWrapper(listOrders),
+    allOrders: ctrlWrapper(allOrders),
 }
 
 
