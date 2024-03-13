@@ -21,6 +21,7 @@ const orderSchema = new Schema({
     address: { type: String, required: true },
     drugslist: [drugSchema],
     total: { type: Number, required: true },
+    order: { type: Number, required: true },
 }, { timestamps: true });
 
 orderSchema.post("save", handleMongooseError);
