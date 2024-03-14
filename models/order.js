@@ -3,6 +3,7 @@ const { handleMongooseError } = require("../helpers");
 
 const orderShemaByShop = new Schema({
     name: { type: String, required: true },
+    photo: { type: String, required: true },
     price: { type: Number, required: true },
     count: { type: Number, required: true },
     totalByDrug: { type: Number, required: true },
